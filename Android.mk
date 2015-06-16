@@ -97,6 +97,7 @@ $(sepolicy_policy.conf): $(call build_policy, $(sepolicy_build_files))
 		-D target_build_variant=$(TARGET_BUILD_VARIANT) \
 		-D target_needs_platform_text_relocations=$(TARGET_ALLOW_TEXT_RELOCATIONS) \
 		-D target_has_legacy_camera_hal1=$(TARGET_HAS_LEGACY_CAMERA_HAL1) \
+		-D shipping_build=$(CYNGN_TARGET) \
 		-s $^ > $@
 	$(hide) sed '/dontaudit/d' $@ > $@.dontaudit
 
